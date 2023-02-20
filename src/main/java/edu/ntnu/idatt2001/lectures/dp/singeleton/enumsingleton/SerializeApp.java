@@ -16,17 +16,16 @@ class SerializeApp {
     String filename = "file.ser";
 
     // Serialization
-    try {
+    try (FileOutputStream file = new FileOutputStream(filename)) {
       // Saving of object in a file
-      FileOutputStream file = new FileOutputStream(filename);
+      
       ObjectOutputStream out = new ObjectOutputStream(file);
 
       // Method for serialization of object
       out.writeObject(object);
 
       out.close();
-      file.close();
-
+    
       System.out.println("Object has been serialized");
 
     } catch (IOException ex) {

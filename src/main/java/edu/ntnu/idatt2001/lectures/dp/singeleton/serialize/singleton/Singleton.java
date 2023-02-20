@@ -2,22 +2,18 @@ package edu.ntnu.idatt2001.lectures.dp.singeleton.serialize.singleton;
 
 public class Singleton implements java.io.Serializable {
 
-  private static Singleton INSTANCE = null;
+  private static Singleton instance;
   
   private int value = 0;
       
   private Singleton() {
   }
 
-  public static Singleton getInstance() {
-    if (INSTANCE == null) {
-      synchronized (Singleton.class) {
-        if (INSTANCE == null) {
-          INSTANCE = new Singleton();
-        }
-      }
+  public static synchronized Singleton getInstance() {
+    if (instance == null) {
+       instance = new Singleton();
     }
-    return INSTANCE;
+    return instance;
   }
 
   public void setValue(int value) {
