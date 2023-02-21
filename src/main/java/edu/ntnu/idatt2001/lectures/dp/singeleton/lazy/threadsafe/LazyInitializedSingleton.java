@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.lectures.dp.singeleton.lazy.threadsafe;
 
 public class LazyInitializedSingleton {
+  private static final String MESSAGE = "Doing something...";
 
   private static LazyInitializedSingleton instance;
 
@@ -15,6 +16,6 @@ public class LazyInitializedSingleton {
   }
 
   public String doSomething() {
-    return "Doing something...";
+    return MESSAGE;
   }
 }

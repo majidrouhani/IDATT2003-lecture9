@@ -1,6 +1,8 @@
 package edu.ntnu.idatt2001.lectures.dp.singeleton.eager;
 
 class EagerlyInitializedSingleton {
+  private static final String MESSAGE = "Doing something...";
+
   // Early, instance will be created at load time
   private static EagerlyInitializedSingleton obj = new EagerlyInitializedSingleton();
 
@@ -12,6 +14,6 @@ class EagerlyInitializedSingleton {
   }
 
   public String doSomething() {
-    return "Doing something...";
+    return MESSAGE;
   }
 }

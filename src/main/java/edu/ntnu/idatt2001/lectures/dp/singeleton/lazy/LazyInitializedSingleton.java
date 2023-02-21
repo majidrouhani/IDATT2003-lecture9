@@ -1,7 +1,9 @@
 package edu.ntnu.idatt2001.lectures.dp.singeleton.lazy;
 
 public class LazyInitializedSingleton {
+  private static final String MESSAGE = "Doing something...";
 
+  // Lazy, instance will be created when needed (getInstance is invoked)
   private static LazyInitializedSingleton instance;
 
   private LazyInitializedSingleton() {
@@ -15,6 +17,6 @@ public class LazyInitializedSingleton {
   }
 
   public String doSomething() {
-    return "Doing something...";
+    return MESSAGE;
   }
 }

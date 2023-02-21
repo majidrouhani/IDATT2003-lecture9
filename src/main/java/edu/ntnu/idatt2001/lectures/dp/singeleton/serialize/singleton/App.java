@@ -9,54 +9,53 @@ import java.io.ObjectOutputStream;
 class App {
 
   public static void main(String[] args) {
-    Singleton object = Singleton.getInstance();
-    object.setValue(10);
+    Singleton serObject = Singleton.getInstance();
+    serObject.setValue(10);
     
     String filename = "file.ser";
 
     // Serialization
-    try {
+    try (FileOutputStream fos = new FileOutputStream(filename)) {
       // Saving of object in a file
-      FileOutputStream file = new FileOutputStream(filename);
-      ObjectOutputStream out = new ObjectOutputStream(file);
+      ObjectOutputStream out = new ObjectOutputStream(fos);
 
       // Method for serialization of object
-      out.writeObject(object);
-
+      out.writeObject(serObject);
       out.close();
-      file.close();
-
       System.out.println("Object has been serialized");
 
     } catch (IOException ex) {
       System.out.println("IOException is caught");
     }
 
-    Singleton object1 = null;
+    Singleton desObject = null;
 
     // Deserialization
-    try {
+    try (FileInputStream file = new FileInputStream(filename)) {
       // Reading the object from a file
-      FileInputStream file = new FileInputStream(filename);
       ObjectInputStream in = new ObjectInputStream(file);
 
       // Method for deserialization of object
-      object1 = (Singleton) in.readObject();
+      desObject = (Singleton) in.readObject();
 
       in.close();
-      file.close();
 
       System.out.println("Object has been deserialized ");
-      System.out.println("Value = " + object1.getValue());
+      System.out.println("Value = " + desObject.getValue());
+
+      serObject.setValue(20);
+      desObject.setValue(30);
+
+      //We have ended up with two object
+      System.out.println("Serialized object = " + serObject.getValue());
+      System.out.println("Deserialized object = " + desObject.getValue());
+
     }
 
     catch (IOException ex) {
       System.out.println("IOException is caught");
-    }
-
-    catch (ClassNotFoundException ex) {
+    } catch (ClassNotFoundException ex) {
       System.out.println("ClassNotFoundException is caught");
     }
-
   }
 }

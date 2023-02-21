@@ -16,16 +16,14 @@ class SerializeApp {
     String filename = "file.ser";
 
     // Serialization
-    try {
+    try (FileOutputStream file = new FileOutputStream(filename)) {
       // Saving of object in a file
-      FileOutputStream file = new FileOutputStream(filename);
       ObjectOutputStream out = new ObjectOutputStream(file);
 
       // Method for serialization of object
       out.writeObject(object);
 
       out.close();
-      file.close();
 
       System.out.println("Object has been serialized");
 
@@ -39,28 +37,21 @@ class SerializeApp {
     EnumSingleton object1 = null;
 
     // Deserialization
-    try {
+    try (FileInputStream file = new FileInputStream(filename)) {
       // Reading the object from a file
-      FileInputStream file = new FileInputStream(filename);
       ObjectInputStream in = new ObjectInputStream(file);
 
       // Method for deserialization of object
       object1 = (EnumSingleton) in.readObject();
 
       in.close();
-      file.close();
 
       System.out.println("Object has been deserialized ");
       System.out.println("Value = " + object1.getValue());
-    }
-
-    catch (IOException ex) {
+    } catch (IOException ex) {
       System.out.println("IOException is caught");
-    }
-
-    catch (ClassNotFoundException ex) {
+    } catch (ClassNotFoundException ex) {
       System.out.println("ClassNotFoundException is caught");
     }
-
   }
 }

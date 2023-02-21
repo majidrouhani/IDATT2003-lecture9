@@ -1,16 +1,20 @@
 package edu.ntnu.idatt2001.lectures.dp.singeleton.serialize.nonesingleton;
 
 class NonSingleton implements java.io.Serializable {
-  /**
-   * 
-   */
+  
   private static final long serialVersionUID = 1L;
-  public int a;
-  public String b;
+  private int value = 0;
 
   // Default constructor
-  public NonSingleton(int a, String b) {
-    this.a = a;
-    this.b = b;
+  public NonSingleton(int value) {
+    this.value = value;
+  }
+
+  public void setValue(int value) {
+    this.value = value;
+  }
+
+  public int getValue() {
+    return this.value;
   }
 }

@@ -9,55 +9,46 @@ import java.io.ObjectOutputStream;
 class App {
 
   public static void main(String[] args) {
-    NonSingleton object = new NonSingleton(1, "geeksforgeeks");
     String filename = "file.ser";
 
     // Serialization
-    try {
+    try (FileOutputStream fos = new FileOutputStream(filename)) {
       // Saving of object in a file
-      FileOutputStream file = new FileOutputStream(filename);
-      ObjectOutputStream out = new ObjectOutputStream(file);
+      ObjectOutputStream oos = new ObjectOutputStream(fos);
 
       // Method for serialization of object
-      out.writeObject(object);
+      oos.writeObject(new NonSingleton(10));
+      oos.writeObject(new NonSingleton(20));
+      oos.writeObject(new NonSingleton(30));
 
-      out.close();
-      file.close();
+      oos.close();
 
-      System.out.println("Object has been serialized");
+      System.out.println("Objects has been serialized");
 
-    }
-
-    catch (IOException ex) {
+    } catch (IOException ex) {
       System.out.println("IOException is caught");
     }
-
-    NonSingleton object1 = null;
 
     // Deserialization
-    try {
+    try (FileInputStream fis = new FileInputStream(filename)) {
       // Reading the object from a file
-      FileInputStream file = new FileInputStream(filename);
-      ObjectInputStream in = new ObjectInputStream(file);
+      ObjectInputStream ois = new ObjectInputStream(fis);
 
-      // Method for deserialization of object
-      object1 = (NonSingleton) in.readObject();
+      boolean cont = true;
+      while (cont) {
+        Object obj = null;
+        obj = ois.readObject();
 
-      in.close();
-      file.close();
+        if (obj != null) {
+          System.out.println("Object has been deserialized. Value = " + ((NonSingleton) obj).getValue());
+        } else {
+          cont = false;
+        }
+      }
 
-      System.out.println("Object has been deserialized ");
-      System.out.println("a = " + object1.a);
-      System.out.println("b = " + object1.b);
-    }
-
-    catch (IOException ex) {
-      System.out.println("IOException is caught");
-    }
-
-    catch (ClassNotFoundException ex) {
-      System.out.println("ClassNotFoundException is caught");
-    }
-
+      ois.close();
+    } catch (IOException | ClassNotFoundException ex) {
+      ex.fillInStackTrace();
+    } 
   }
 }

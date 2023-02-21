@@ -5,11 +5,11 @@ public enum EnumSingleton {
   
   int value;
 
-  public int getValue() {
+  int getValue() {
       return value;
   }
 
-  public void setValue(int value) {
+  void setValue(int value) {
       this.value = value;
   }
 }
