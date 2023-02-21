@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.lectures.dp.singeleton.eager.staticblock;
 
 public class EagerStaticBlockSingleton {
+    private static final String MESSAGE = "Doing something...";
 
     private static EagerStaticBlockSingleton instance;
 
@@ -18,5 +19,9 @@ public class EagerStaticBlockSingleton {
 
     public static EagerStaticBlockSingleton getInstance() {
         return instance;
+    }
+
+    public String doSomething() {
+        return MESSAGE;
     }
 }
