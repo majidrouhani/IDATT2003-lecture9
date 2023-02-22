@@ -2,6 +2,7 @@ package edu.ntnu.idatt2001.lectures.dp.singeleton.lazy.threadsafe;
 
 public class App extends Thread {
 
+  @Override
   public void run() {
     System.out.println("Thread is running...");
 
@@ -11,6 +12,7 @@ public class App extends Thread {
   }
 
   public static void main(String[] args) {
-    App t1=new App();  
-      t1.start();  
-  }}
+    App t1 = new App();
+    t1.start();
+  }
+}
