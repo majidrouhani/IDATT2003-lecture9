@@ -12,8 +12,8 @@ public class EagerStaticBlockSingleton {
     static {
         try {
             instance = new EagerStaticBlockSingleton();
-        } catch (Exception e) {
-            throw new RuntimeException("Exception occurred in creating singleton instance");
+        } catch (Exception e) {            
+            throw new EagerStaticBlockSingletonException("Exception occurred in creating singleton instance:" +e.toString());
         }
     }
 
