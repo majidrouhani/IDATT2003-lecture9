@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.dp.singeleton.enumsingleton;
+package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.singleton;
 
 public class EnumSingletonApp {
 

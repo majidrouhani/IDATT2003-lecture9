@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.dp.singeleton.enumsingleton;
+package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.singleton;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,7 +10,7 @@ class SerializeApp {
 
   public static void main(String[] args) {
     EnumSingleton object = EnumSingleton.INSTANCE;
-    object.setValue(10);
+    object.setValue(5);
     System.out.println(object.getValue());
     
     String filename = "file.ser";
