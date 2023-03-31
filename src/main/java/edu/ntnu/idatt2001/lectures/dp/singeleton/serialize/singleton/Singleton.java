@@ -9,6 +9,10 @@ public class Singleton implements java.io.Serializable {
   private Singleton() {
   }
 
+  
+  /** 
+   * @return Singleton
+   */
   public static Singleton getInstance() {
     if (instance == null) {
       instance = new Singleton();
@@ -16,10 +20,18 @@ public class Singleton implements java.io.Serializable {
     return instance;
   }
 
+  
+  /** 
+   * @param value
+   */
   public void setValue(int value) {
     this.value = value;
   }
 
+  
+  /** 
+   * @return int
+   */
   public int getValue() {
     return this.value;
   }

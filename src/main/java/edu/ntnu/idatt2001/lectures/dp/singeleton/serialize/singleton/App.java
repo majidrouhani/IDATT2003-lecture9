@@ -6,6 +6,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * The example illustrates the problem of singleton class when serialization is used.
+ * In this code, some instances of NonSingleton class are created and saved in a file using serialization.
+ * The objects are then read back from the file and their values are written to the screen.
+ * We can see that in this case we end up with two objects.
+ */
 class App {
 
   public static void main(String[] args) {

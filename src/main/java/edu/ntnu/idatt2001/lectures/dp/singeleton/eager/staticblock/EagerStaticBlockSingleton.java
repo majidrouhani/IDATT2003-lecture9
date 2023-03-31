@@ -16,11 +16,17 @@ public class EagerStaticBlockSingleton {
             throw new EagerStaticBlockSingletonException("Exception occurred in creating singleton instance:" +e.toString());
         }
     }
-
+    
+    /** 
+     * @return EagerStaticBlockSingleton
+     */
     public static EagerStaticBlockSingleton getInstance() {
         return instance;
     }
-
+    
+    /** 
+     * @return String
+     */
     public String doSomething() {
         return MESSAGE;
     }

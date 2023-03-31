@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * The example illustrates the concept of object serialization.
+ * In this code, some instances of NonSingleton class are created and saved in a file using serialization.
+ * The objects are then read back from the file and their values are written to the screen.
+ */
 class App {
 
   public static void main(String[] args) {
@@ -49,6 +54,6 @@ class App {
       ois.close();
     } catch (IOException | ClassNotFoundException ex) {
       ex.fillInStackTrace();
-    } 
+    }
   }
 }

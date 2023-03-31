@@ -2,6 +2,10 @@
 
 package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.ex2;
 
+/**
+ * Plan contains come constants
+ * For each constant, two values (mass, radius) is sent in as parameters to the constructor of the constant.
+ */
 public enum Planet {
     MERCURY (3.303e+23, 2.4397e6),
     VENUS   (4.869e+24, 6.0518e6),
@@ -18,23 +22,28 @@ public enum Planet {
     // universal gravitational constant  (m3 kg-1 s-2)
     public static final double G = 6.67300E-11;
 
-
+    // constructor for each constant
     Planet(double mass, double radius) {
         this.mass = mass;
         this.radius = radius;
     }
 
+    // getter for mass for each constant
     public double getMass() {
         return mass;
     }
-
+    
+    // getter for radius for each constant
     public double getRadius() {
         return radius;
     }
 
+    // Method for calculating the surface gravity.
     double surfaceGravity() {
         return G * mass / (radius * radius);
     }
+
+    // Method for calculating the surface weight.
     double surfaceWeight(double otherMass) {
         return otherMass * surfaceGravity();
     }

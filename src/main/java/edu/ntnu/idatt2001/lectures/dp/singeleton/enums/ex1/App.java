@@ -1,10 +1,15 @@
 // Source: https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
 package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.ex1;
 
-public class EnumTest {
+import javafx.print.PrintColor;
+
+/**
+ * Simple example on how to use enums
+ */
+public class App {
     Day day;
     
-    public EnumTest(Day day) {
+    public App(Day day) {
         this.day = day;
     }
     
@@ -29,15 +34,19 @@ public class EnumTest {
     }
     
     public static void main(String[] args) {
-        EnumTest firstDay = new EnumTest(Day.MONDAY);
-        firstDay.tellItLikeItIs();
-        EnumTest thirdDay = new EnumTest(Day.WEDNESDAY);
-        thirdDay.tellItLikeItIs();
-        EnumTest fifthDay = new EnumTest(Day.FRIDAY);
-        fifthDay.tellItLikeItIs();
-        EnumTest sixthDay = new EnumTest(Day.SATURDAY);
-        sixthDay.tellItLikeItIs();
-        EnumTest seventhDay = new EnumTest(Day.SUNDAY);
-        seventhDay.tellItLikeItIs();
+
+        //Print all values in Day
+        for (Day day : Day.values()) {
+            System.out.println(day);
+        }
+
+        App mon = new App(Day.MONDAY);
+        mon.tellItLikeItIs();
+        App wed = new App(Day.WEDNESDAY);
+        wed.tellItLikeItIs();
+        App fri = new App(Day.FRIDAY);
+        fri.tellItLikeItIs();
+        App sat = new App(Day.SATURDAY);
+        sat.tellItLikeItIs();
     }
 }

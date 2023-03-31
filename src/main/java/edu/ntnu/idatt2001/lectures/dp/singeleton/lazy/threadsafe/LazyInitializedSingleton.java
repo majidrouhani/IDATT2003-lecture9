@@ -8,6 +8,10 @@ public class LazyInitializedSingleton {
   private LazyInitializedSingleton() {
   }
 
+  
+  /** 
+   * @return LazyInitializedSingleton
+   */
   public static synchronized LazyInitializedSingleton getInstance() {
     if (instance == null) {
       instance = new LazyInitializedSingleton();
@@ -15,6 +19,10 @@ public class LazyInitializedSingleton {
     return instance;
   }
 
+  
+  /** 
+   * @return String
+   */
   public String doSomething() {
     return MESSAGE;
   }

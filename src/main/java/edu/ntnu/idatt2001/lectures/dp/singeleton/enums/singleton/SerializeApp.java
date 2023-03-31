@@ -6,48 +6,44 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * An example of using enum as singleton class
+ * 'instance' is the constant in the enum.
+ */
 class SerializeApp {
 
   public static void main(String[] args) {
-    EnumSingleton object = EnumSingleton.INSTANCE;
-    object.setValue(5);
-    System.out.println(object.getValue());
-    
-    String filename = "file.ser";
+    EnumSingleton serInstance = EnumSingleton.INSTANCE;
+    serInstance.setValue(5);
+
+    // Print the value before serializing
+    System.out.println("Initial value: " + serInstance.getValue());
 
     // Serialization
+    String filename = "file.ser";
     try (FileOutputStream file = new FileOutputStream(filename)) {
-      // Saving of object in a file
       ObjectOutputStream out = new ObjectOutputStream(file);
-
-      // Method for serialization of object
-      out.writeObject(object);
-
+      out.writeObject(serInstance);
       out.close();
-
       System.out.println("Object has been serialized");
-
     } catch (IOException ex) {
       System.out.println("IOException is caught");
     }
 
-    object.setValue(20);
-    System.out.println(object.getValue());
-    
-    EnumSingleton object1 = null;
+    // Change the value of instance
+    serInstance.setValue(20);
+    System.out.println("Value changed: " + serInstance.getValue());
 
     // Deserialization
+    EnumSingleton desInstance = null;
     try (FileInputStream file = new FileInputStream(filename)) {
-      // Reading the object from a file
       ObjectInputStream in = new ObjectInputStream(file);
-
-      // Method for deserialization of object
-      object1 = (EnumSingleton) in.readObject();
-
+      desInstance = (EnumSingleton) in.readObject();
       in.close();
-
       System.out.println("Object has been deserialized ");
-      System.out.println("Value = " + object1.getValue());
+
+
+      System.out.println("Deserialized value: " + desInstance.getValue());
     } catch (IOException ex) {
       System.out.println("IOException is caught");
     } catch (ClassNotFoundException ex) {

@@ -10,10 +10,18 @@ class NonSingleton implements java.io.Serializable {
     this.value = value;
   }
 
+  
+  /** 
+   * @param value
+   */
   public void setValue(int value) {
     this.value = value;
   }
 
+  
+  /** 
+   * @return int
+   */
   public int getValue() {
     return this.value;
   }

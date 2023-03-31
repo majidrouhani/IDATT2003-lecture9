@@ -1,5 +1,8 @@
 package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.singleton;
 
+/**
+ * An enum with one value 'INSTANCE'
+ */
 public enum EnumSingleton {
   INSTANCE(10);
 

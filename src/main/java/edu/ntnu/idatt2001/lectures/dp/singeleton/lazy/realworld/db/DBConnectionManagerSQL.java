@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.dp.singeleton.lazy.realworld;
+package edu.ntnu.idatt2001.lectures.dp.singeleton.lazy.realworld.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,6 +10,7 @@ public class DBConnectionManagerSQL {
  
     private DBConnectionManagerSQL(String url, String username, String password) throws SQLException {
        // initialize the database connection
+       
        connection = DriverManager.getConnection(url, username, password);
     }
  
