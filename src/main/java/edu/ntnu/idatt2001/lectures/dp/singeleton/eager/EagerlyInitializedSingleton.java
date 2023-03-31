@@ -4,15 +4,23 @@ class EagerlyInitializedSingleton {
   private static final String MESSAGE = "Doing something...";
 
   // Early, instance will be created at load time
-  private static EagerlyInitializedSingleton obj = new EagerlyInitializedSingleton();
+  private static EagerlyInitializedSingleton instance = new EagerlyInitializedSingleton();
 
   private EagerlyInitializedSingleton() {
   }
 
-  public static EagerlyInitializedSingleton getA() {
-    return obj;
+  
+  /** 
+   * @return EagerlyInitializedSingleton
+   */
+  public static EagerlyInitializedSingleton getInstance() {
+    return instance;
   }
 
+  
+  /** 
+   * @return String
+   */
   public String doSomething() {
     return MESSAGE;
   }
