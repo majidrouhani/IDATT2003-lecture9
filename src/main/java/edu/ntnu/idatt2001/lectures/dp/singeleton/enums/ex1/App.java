@@ -1,8 +1,6 @@
 // Source: https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
 package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.ex1;
 
-import javafx.print.PrintColor;
-
 /**
  * Simple example on how to use enums
  */
