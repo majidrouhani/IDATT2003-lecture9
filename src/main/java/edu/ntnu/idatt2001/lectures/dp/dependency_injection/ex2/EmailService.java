@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.dp.dependency_injection.util;
+package edu.ntnu.idatt2001.lectures.dp.dependency_injection.ex2;
 
 public class EmailService {
 

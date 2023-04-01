@@ -1,0 +1,26 @@
+
+interface Consumer {
+	processMessages(String msg, String rec): void
+}
+
+interface MessageService {
+	sendMessage(String msg, String rec): void
+}
+
+class EmailServiceImpl implements MessageService {
+    + sendMessage(String msg, String rec): void
+}
+
+interface MessageServiceInjector {
+	+ getConsumer(): Consumer
+}
+
+class EmailServiceInjector implements MessageServiceInjector {
+	+ getConsumer(): Consumer
+}
+
+class MyDIApplication implements Consumer{
+	- service: MessageService	
+	+ MyDIApplication(MessageService svc)
+	+ processMessages(String msg, String rec): void 
+}
