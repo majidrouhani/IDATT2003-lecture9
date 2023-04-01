@@ -2,6 +2,10 @@ package edu.ntnu.idatt2001.lectures.dp.singeleton.eager;
 
 public class App {
 
+  
+  /** 
+   * @param args
+   */
   public static void main(String... args) {
     EagerlyInitializedSingleton a = EagerlyInitializedSingleton.getInstance();
     System.out.println(a.doSomething());

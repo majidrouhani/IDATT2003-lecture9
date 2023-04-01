@@ -2,6 +2,10 @@ package edu.ntnu.idatt2001.lectures.dp.singeleton.eager.staticblock;
 
 public class App {
 
+  
+  /** 
+   * @param args
+   */
   public static void main(String... args) {
     EagerStaticBlockSingleton a = EagerStaticBlockSingleton.getInstance();
     System.out.println(a.doSomething());

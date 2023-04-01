@@ -14,6 +14,14 @@ public class DBConnectionManagerSQL {
        connection = DriverManager.getConnection(url, username, password);
     }
  
+    
+    /** 
+     * @param url
+     * @param username
+     * @param password
+     * @return DBConnectionManagerSQL
+     * @throws SQLException
+     */
     public static DBConnectionManagerSQL getInstance(String url, String username, String password) throws SQLException {
        if (instance == null) {
           instance = new DBConnectionManagerSQL(url, username, password);
@@ -21,6 +29,10 @@ public class DBConnectionManagerSQL {
        return instance;
     }
  
+    
+    /** 
+     * @return Connection
+     */
     public Connection getConnection() {
        return connection;
     }

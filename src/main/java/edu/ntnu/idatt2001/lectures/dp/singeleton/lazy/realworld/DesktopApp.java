@@ -6,6 +6,10 @@ import java.io.IOException;
 
 public class DesktopApp {
 
+  
+  /** 
+   * @param args
+   */
   public static void main(String[] args) {
     Desktop desktop = Desktop.getDesktop();
 

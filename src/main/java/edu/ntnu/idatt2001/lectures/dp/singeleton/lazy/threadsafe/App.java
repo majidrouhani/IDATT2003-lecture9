@@ -15,6 +15,10 @@ public class App extends Thread {
 
   }
 
+  
+  /** 
+   * @param args
+   */
   public static void main(String[] args) {
     App t1 = new App();
     App t2 = new App();
