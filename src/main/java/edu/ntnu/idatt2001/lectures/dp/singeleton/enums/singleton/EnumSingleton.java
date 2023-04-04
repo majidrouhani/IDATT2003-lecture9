@@ -6,7 +6,7 @@ package edu.ntnu.idatt2001.lectures.dp.singeleton.enums.singleton;
 public enum EnumSingleton {
   INSTANCE(10);
 
-  EnumSingleton(int value) {
+  private EnumSingleton(int value) {
     this.setValue(value);
   }
 

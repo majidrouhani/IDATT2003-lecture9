@@ -23,7 +23,7 @@ public enum Planet {
     public static final double G = 6.67300E-11;
 
     // constructor for each constant
-    Planet(double mass, double radius) {
+    private Planet(double mass, double radius) {
         this.mass = mass;
         this.radius = radius;
     }
