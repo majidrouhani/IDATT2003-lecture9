@@ -5,9 +5,6 @@ public class EagerStaticBlockSingleton {
 
     private static EagerStaticBlockSingleton instance;
 
-    private EagerStaticBlockSingleton() {
-    }
-
     // static block initialization for exception handling
     static {
         try {
@@ -17,6 +14,9 @@ public class EagerStaticBlockSingleton {
         }
     }
     
+    private EagerStaticBlockSingleton() {
+    }
+
     /** 
      * @return EagerStaticBlockSingleton
      */

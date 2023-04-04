@@ -14,10 +14,15 @@ class SerializeApp {
 
   public static void main(String[] args) {
     EnumSingleton serInstance = EnumSingleton.INSTANCE;
+
+    // Print initial value
+    System.out.println(serInstance.getValue());
+
+    // Change the value
     serInstance.setValue(5);
 
     // Print the value before serializing
-    System.out.println("Initial value: " + serInstance.getValue());
+    System.out.println("Changed value before serialization: " + serInstance.getValue());
 
     // Serialization
     String filename = "file.ser";
@@ -30,10 +35,6 @@ class SerializeApp {
       System.out.println("IOException is caught");
     }
 
-    // Change the value of instance
-    serInstance.setValue(20);
-    System.out.println("Value changed: " + serInstance.getValue());
-
     // Deserialization
     EnumSingleton desInstance = null;
     try (FileInputStream file = new FileInputStream(filename)) {
@@ -42,6 +43,8 @@ class SerializeApp {
       in.close();
       System.out.println("Object has been deserialized ");
 
+      serInstance.setValue(15);
+      System.out.println("Changed serialized value again: " + serInstance.getValue());
 
       System.out.println("Deserialized value: " + desInstance.getValue());
     } catch (IOException ex) {
